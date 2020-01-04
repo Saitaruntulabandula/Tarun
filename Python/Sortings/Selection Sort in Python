@@ -1,0 +1,18 @@
+list=[]
+n=int(input('Enter the length of the list:'))
+print('Enter the elements to sort:')
+for i in range(n):
+    elements=int(input())
+    list.append(elements)
+
+for i in range(n):
+    minpos=i
+    for j in range(i,n):
+        if list[j]<list[minpos]:
+            minpos=j
+
+    temp=list[i]
+    list[i]=list[minpos]
+    list[minpos]=temp
+
+    print(list)
