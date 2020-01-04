@@ -1,0 +1,40 @@
+def heapsort(list):
+    def swap(list,i,j):
+        temp = list[i]
+        list[i] = list[j]
+        list[j] = temp
+
+    def siftdown(list,i,size): #Shiftdown the parentnode to last node
+        l = 2*i+1
+        r = 2*i+2
+        largest = i
+        if l<=size-1 and list[l]>list[i]:
+            largest = l
+        if r<=size-1 and list[r]>list[largest]:
+            largest = r
+        if largest != i:
+            swap(list,i,largest)
+            siftdown(list, largest, size)
+
+    def heapify(list,size): #Convert into Heap
+        p = (size//2)-1
+        while p>=0:
+            siftdown(list,p,size)
+            p -= 1
+
+    size = len(list)
+    heapify(list,size)
+    end = size-1
+    while(end > 0):
+        swap(list,0,end)
+        siftdown(list,0,end)
+        end -= 1
+
+list=[]
+n=int(input('Enter the length of the list:'))
+print('Enter the elements to sort:')
+for i in range(n):
+    elements=int(input())
+    list.append(elements) 
+heapsort(list)
+print(list)
