@@ -1,0 +1,20 @@
+def shellsort(list):
+    n= len(list)
+    gap = n // 2
+    while gap > 0:
+        for i in range(gap,n):
+            temp = list[i]
+            j = i
+            while j>=gap and list[j-gap]>temp:
+                list[j]= list[j-gap]
+                j -= gap
+            list[j] = temp
+        gap //= 2
+list=[]
+n=int(input('Enter the length of the list:'))
+print('Enter the elements to sort:')
+for i in range(n):
+    elements=int(input())
+    list.append(elements)
+shellsort(list)
+print(list)
