@@ -1,0 +1,13 @@
+list=[]
+n=int(input('Enter the length of the list:'))
+print('Enter the elements to sort:')
+for i in range(n):
+    elements=int(input())
+    list.append(elements)               #len(list)=6
+for i in range(len(list)-1,0,-1):       #(len(list)-1,0,-1)  #(5,0,-1)
+    for j in range(i):                  #i=5,4,3,2,1 
+        if list[j]>list[j+1]:           #j=5,4,3,2,1 #5 times swapping
+            temp=list[j]                #result largest value wents to last
+            list[j]=list[j+1]
+            list[j+1]=temp
+print(list)
