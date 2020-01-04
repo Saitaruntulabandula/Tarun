@@ -1,0 +1,14 @@
+list=[]
+n=int(input('Enter the length of the list:'))  #Taking number of Elements
+print('Enter the elements to sort:')           #Taking Elements
+for i in range(n):                             #Inserting into List
+    elements=int(input())
+    list.append(elements)
+for i in range(1,len(list)):
+    currentvalue=list[i]
+    position=i
+    while(position>0 and list[position-1]>currentvalue):
+        list[position]=list[position-1]
+        position=position-1
+    list[position]=currentvalue
+print(list)
